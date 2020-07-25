@@ -3,16 +3,21 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": "AzureAdmin"
     },
     "vmSize": {
         "value": "Standard_B2s"
     },
     "adminPassword": {
-      "value": "GEN-PASSWORD"
+        "reference": {
+            "keyVault": {
+            "id": "/subscriptions/792e70ac-90dc-41ce-86db-65eea6886eab/resourceGroups/KeyVaultRG/providers/Microsoft.KeyVault/vaults/bobhickmansecrets"
+            },
+            "secretName": "vmAdminPassword"
+        }
     },
     "dnsLabelPrefix": {
-      "value": "GEN-UNIQUE"
-    }
+      "value": "testadvm"
+    }    
   }
 }
